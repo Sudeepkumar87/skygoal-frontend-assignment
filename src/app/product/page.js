@@ -55,7 +55,7 @@ function ProductsContent() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
       <div className="mb-6 sm:mb-8 mt-4 sm:mt-6">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
           Grocery store with different treasures
         </h1>
         <div className="relative h-48 sm:h-56 lg:h-64 rounded-lg overflow-hidden mb-4 sm:mb-6">
@@ -71,9 +71,9 @@ function ProductsContent() {
       <div className="lg:hidden mb-4">
         <button
           onClick={() => setShowFilters(!showFilters)}
-          className="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 transition-colors"
+          className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
         >
-          <span className="font-medium text-gray-700">Filters</span>
+          <span className="font-medium text-gray-700 dark:text-gray-200">Filters</span>
           <svg
             className={`h-5 w-5 text-gray-500 transform transition-transform ${showFilters ? 'rotate-180' : ''}`}
             fill="none"
@@ -104,14 +104,14 @@ function ProductsContent() {
                 value={filters.q}
                 onChange={(e) => setFilters(f => ({ ...f, q: e.target.value }))}
                 placeholder="Search products..."
-                className="w-full pl-10 pr-4 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-4 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-300"
               />
               <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">🔍</span>
             </div>
             <select
               value={filters.sort}
               onChange={(e) => setFilters(f => ({ ...f, sort: e.target.value }))}
-              className="w-full sm:w-auto border border-gray-300 rounded-lg px-4 py-2 sm:py-2.5 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              className="w-full sm:w-auto border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 sm:py-2.5 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             >
               <option value="">Sort by</option>
               <option value="price_asc">Price: Low to High</option>
@@ -133,7 +133,7 @@ function ProductsContent() {
             </>
           ) : (
             <div className="text-center py-8 sm:py-12">
-              <p className="text-gray-500 text-base sm:text-lg">No products found. Try adjusting your filters.</p>
+              <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg">No products found. Try adjusting your filters.</p>
             </div>
           )}
         </div>
