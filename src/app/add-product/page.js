@@ -216,7 +216,7 @@ export default function AddProduct(){
                         onChange={(e) => setBrandType(e.target.value)}
                         className="w-4 h-4 text-blue-600 dark:bg-gray-700"
                       />
-                      <span className="ml-2 text-sm">Select from list</span>
+                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">Select from list</span>
                     </label>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -227,7 +227,7 @@ export default function AddProduct(){
                         onChange={(e) => setBrandType(e.target.value)}
                         className="w-4 h-4 text-blue-600 dark:bg-gray-700"
                       />
-                      <span className="ml-2 text-sm">Enter custom</span>
+                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">Enter custom</span>
                     </label>
                   </div>
                   {brandType === 'select' ? (
