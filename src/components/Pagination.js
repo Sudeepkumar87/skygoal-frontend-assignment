@@ -22,7 +22,7 @@ export default function Pagination({page, totalPages, setPage}){
       <button 
         onClick={()=>setPage(p=>Math.max(1,p-1))} 
         disabled={page === 1}
-        className="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
       >
         Prev
       </button>
@@ -31,11 +31,11 @@ export default function Pagination({page, totalPages, setPage}){
         <>
           <button 
             onClick={()=>setPage(1)} 
-            className="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
           >
             1
           </button>
-          {startPage > 2 && <span className="px-2 text-gray-500">...</span>}
+          {startPage > 2 && <span className="px-2 text-gray-500 dark:text-gray-400">...</span>}
         </>
       )}
       
@@ -43,10 +43,10 @@ export default function Pagination({page, totalPages, setPage}){
         <button 
           key={p} 
           onClick={()=>setPage(p)} 
-          className={`px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border rounded-lg transition-colors ${
+          className={`px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border rounded-lg transition-colors bg-white dark:bg-gray-800 ${
             p===page 
               ? 'bg-purple-600 text-white border-purple-600' 
-              : 'border-gray-300 hover:bg-gray-50'
+              : 'border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
           }`}
         >
           {p}
@@ -55,10 +55,10 @@ export default function Pagination({page, totalPages, setPage}){
       
       {endPage < totalPages && (
         <>
-          {endPage < totalPages - 1 && <span className="px-2 text-gray-500">...</span>}
+          {endPage < totalPages - 1 && <span className="px-2 text-gray-500 dark:text-gray-400">...</span>}
           <button 
             onClick={()=>setPage(totalPages)} 
-            className="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
           >
             {totalPages}
           </button>
@@ -68,7 +68,7 @@ export default function Pagination({page, totalPages, setPage}){
       <button 
         onClick={()=>setPage(p=>Math.min(totalPages,p+1))} 
         disabled={page === totalPages}
-        className="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
       >
         Next
       </button>

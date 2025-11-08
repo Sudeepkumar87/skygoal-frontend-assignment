@@ -116,13 +116,13 @@ function Navbar(){
             />
             
             {/* Slide-out menu */}
-            <div className="fixed top-0 right-0 bottom-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-[1001]">
+            <div className="fixed top-0 right-0 bottom-0 w-64 bg-white dark:bg-gray-800 shadow-lg transform transition-transform duration-300 ease-in-out z-[1001]">
               <div className="flex flex-col h-full p-4">
                 <div className="flex justify-between items-center mb-8">
-                  <span className="font-bold text-xl text-gray-900">ShopStore</span>
+                  <span className="font-bold text-xl text-gray-900 dark:text-white">ShopStore</span>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                    className="p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
                     aria-label="Close menu"
                   >
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -135,38 +135,38 @@ function Navbar(){
                   <Link 
                     href="/" 
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors"
+                    className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
                   >
                     Home
                   </Link>
                   <Link 
                     href="#" 
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors"
+                    className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
                   >
                     Blog
                   </Link>
                   <Link 
                     href="#" 
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors"
+                    className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50 transition-colors dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
                   >
                     Contact
                   </Link>
                   
-                  <div className="mt-auto pt-4 border-t border-gray-200">
+                  <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
                     {isLoggedIn ? (
                       <>
                         <Link 
                           href="/add-product" 
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block w-full mb-3 px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-center transition-colors"
+                          className="block w-full mb-3 px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-center transition-colors dark:bg-purple-700 dark:hover:bg-purple-800"
                         >
                           Add Product
                         </Link>
                         <button 
                           onClick={handleLogout}
-                          className="block w-full px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-left transition-colors"
+                          className="block w-full px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-left transition-colors dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
                         >
                           Logout
                         </button>
@@ -175,7 +175,7 @@ function Navbar(){
                       <Link 
                         href="/login" 
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block w-full px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-center transition-colors"
+                        className="block w-full px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-center transition-colors dark:bg-purple-700 dark:hover:bg-purple-800"
                       >
                         Sign in Account
                       </Link>
