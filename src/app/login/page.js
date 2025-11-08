@@ -7,6 +7,7 @@ import { loginUser, signupUser } from '../../redux/authSlice'
 import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoadingSpinner from '../../components/LoadingSpinner';
 export default function Login(){
   const { register, handleSubmit } = useForm()
   const dispatch = useDispatch()
@@ -42,17 +43,17 @@ export default function Login(){
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">ShopStore</h1>
-          <p className="text-gray-600">Welcome back! Please login to your account.</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">ShopStore</h1>
+          <p className="text-gray-600 dark:text-gray-300">Welcome back! Please login to your account.</p>
         </div>
 
         {/* Tabs */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="flex border-b border-gray-200">
+          <div className="flex border-b border-gray-200 dark:border-gray-700">
             <button
               onClick={() => setActiveTab('login')}
               className={`flex-1 py-4 px-6 text-center font-medium transition-colors ${
@@ -80,7 +81,7 @@ export default function Login(){
               <form onSubmit={handleSubmit(onLogin)} className="space-y-4">
                 <div>
                   <p className="text-sm text-gray-600 mb-4">
-                   Please Login with your Email and Password
+                    If you have an account, sign in with your username or email address.
                   </p>
                   
                   <div className="space-y-4">
@@ -92,7 +93,7 @@ export default function Login(){
                         {...register('email', { required: true })}
                         type="email"
                         placeholder="Username or email address"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                       />
                     </div>
 
@@ -104,7 +105,7 @@ export default function Login(){
                         {...register('password', { required: true })}
                         type="password"
                         placeholder="Password"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                       />
                     </div>
 
@@ -112,19 +113,28 @@ export default function Login(){
                       <label className="flex items-center">
                         <input
                           type="checkbox"
-                          className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                          className="w-4 h-4 text-purple-600 border-gray-300 dark:border-gray-600 rounded focus:ring-purple-500 bg-white dark:bg-gray-800"
                         />
                         <span className="ml-2 text-sm text-gray-600">Remember me</span>
                       </label>
-                  
+                      <Link href="#" className="text-sm text-purple-600 hover:text-purple-700">
+                        Lost your password?
+                      </Link>
                     </div>
 
                     <button
                       type="submit"
                       disabled={auth.loading}
-                      className="w-full bg-purple-600 text-white py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors disabled:opacity-50"
+                      className="w-full bg-purple-600 text-white py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center"
                     >
-                      {auth.loading ? 'Loading...' : 'Log in'}
+                      {auth.loading ? (
+                        <>
+                          <LoadingSpinner size="small" />
+                          <span className="ml-2">Logging in...</span>
+                        </>
+                      ) : (
+                        'Log in'
+                      )}
                     </button>
                   </div>
                 </div>
@@ -145,7 +155,7 @@ export default function Login(){
                       <input
                         {...register('username', { required: true })}
                         placeholder="Username"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                       />
                     </div>
 
@@ -157,7 +167,7 @@ export default function Login(){
                         {...register('email', { required: true })}
                         type="email"
                         placeholder="Email address"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                       />
                     </div>
 
@@ -169,20 +179,55 @@ export default function Login(){
                         {...register('password', { required: true })}
                         type="password"
                         placeholder="Password"
-                        className="w-full border border-gray-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
                       />
                     </div>
 
-              
+                    <div className="space-y-2">
+                      <p className="text-sm font-medium text-gray-700">I am a:</p>
+                      <div className="flex gap-4">
+                        <label className="flex items-center">
+                          <input
+                            type="radio"
+                            name="userType"
+                            value="customer"
+                            checked={userType === 'customer'}
+                            onChange={(e) => setUserType(e.target.value)}
+                            className="w-4 h-4 text-purple-600 border-gray-300 dark:border-gray-600 focus:ring-purple-500 bg-white dark:bg-gray-800"
+                          />
+                          <span className="ml-2 text-sm text-gray-600">I am a customer</span>
+                        </label>
+                        <label className="flex items-center">
+                          <input
+                            type="radio"
+                            name="userType"
+                            value="vendor"
+                            checked={userType === 'vendor'}
+                            onChange={(e) => setUserType(e.target.value)}
+                            className="w-4 h-4 text-purple-600 border-gray-300 dark:border-gray-600 focus:ring-purple-500 bg-white dark:bg-gray-800"
+                          />
+                          <span className="ml-2 text-sm text-gray-600">I am a vendor</span>
+                        </label>
+                      </div>
+                    </div>
 
-                  
+                    <p className="text-xs text-gray-500">
+                      Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy.
+                    </p>
 
                     <button
                       type="submit"
                       disabled={auth.loading}
-                      className="w-full bg-purple-600 text-white py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors disabled:opacity-50"
+                      className="w-full bg-purple-600 text-white py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors disabled:opacity-50 flex items-center justify-center"
                     >
-                      {auth.loading ? 'Loading...' : 'Register'}
+                      {auth.loading ? (
+                        <>
+                          <LoadingSpinner size="small" />
+                          <span className="ml-2">Registering...</span>
+                        </>
+                      ) : (
+                        'Register'
+                      )}
                     </button>
                   </div>
                 </div>
