@@ -45,8 +45,8 @@ export default function Pagination({page, totalPages, setPage}){
           onClick={()=>setPage(p)} 
           className={`px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base border rounded-lg transition-colors bg-white dark:bg-gray-800 ${
             p===page 
-              ? 'bg-purple-600 text-white border-purple-600' 
-              : 'border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
+              ? 'bg-purple-600 text-black border-purple-600' 
+              : 'border-gray-300 hover:bg-gray-50 text-gray-700 '
           }`}
         >
           {p}
